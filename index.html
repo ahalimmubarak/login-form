@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Login SSO</title>
+
+    <!-- 1. Memuat Tailwind CSS & Swiper.js -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+     <link rel="stylesheet" href="/output.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- 2. Memuat Font dari Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Kustomisasi style untuk font & carousel -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: white !important;
+            background-color: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+            width: 44px !important;
+            height: 44px !important;
+            border-radius: 9999px;
+            transition: background-color 0.2s;
+        }
+
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 1.25rem !important;
+            font-weight: 700;
+        }
+
+        .swiper-pagination-bullet {
+            background-color: rgba(255, 255, 255, 0.5) !important;
+            opacity: 1;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: #3b82f6 !important;
+        }
+
+        .background-swiper {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        @keyframes zoom-in-parallax {
+            from {
+                transform: scale(1);
+            }
+
+            /* UBAH: Efek zoom dikurangi dari 1.15 menjadi 1.05 */
+            to {
+                transform: scale(1.05);
+            }
+        }
+
+        .background-swiper .swiper-slide-active .bg-cover {
+            /* Durasinya diperpanjang agar lebih halus */
+            animation: zoom-in-parallax 8s ease-out forwards;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Carousel untuk Background -->
+    <div class="swiper background-swiper">
+        <div class="swiper-wrapper">
+            <!-- Gambar Background 1 -->
+            <div class="swiper-slide">
+                <div class="h-full w-full bg-cover bg-center" style="background-image: url('/img/DSC06465.jpg')">
+                </div>
+            </div>
+            <!-- Gambar Background 2 -->
+            <div class="swiper-slide">
+                <div class="h-full w-full bg-cover bg-center" style="background-image: url('/img/DSC06455.jpg')">
+                </div>
+            </div>
+            <!-- Gambar Background 3 -->
+            <div class="swiper-slide">
+                <div class="h-full w-full bg-cover bg-center" style="background-image: url('/img/DSC06610.jpg')">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="grid min-h-screen w-full grid-cols-1 lg:grid-cols-5">
+
+        <section class="relative hidden bg-black/25 lg:col-span-3 lg:flex flex-col justify-end p-10 text-white">
+            <div class="relative z-10 w-full">
+                <h2 class="text-3xl font-bold border-l-4 border-blue-500 pl-4 mb-6">Berita Terkini</h2>
+
+                <div class="swiper blog-carousel">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide">
+                            <a href="#" class="block rounded-lg bg-white/10 p-5 transition hover:bg-white/20">
+                                <h3 class="font-semibold text-lg">Pentingnya Keamanan Akun</h3>
+                                <p class="mt-1 text-sm text-white/80">Jaga aset digital Anda dengan langkah-langkah
+                                    proaktif...</p>
+                            </a>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="swiper-slide">
+                            <a href="#" class="block rounded-lg bg-white/10 p-5 transition hover:bg-white/20">
+                                <h3 class="font-semibold text-lg">Produktivitas dengan SSO</h3>
+                                <p class="mt-1 text-sm text-white/80">Sederhanakan alur kerja dan hemat waktu
+                                    berharga...</p>
+                            </a>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="swiper-slide">
+                            <a href="#" class="block rounded-lg bg-white/10 p-5 transition hover:bg-white/20">
+                                <h3 class="font-semibold text-lg">Fitur Kolaborasi Terbaru</h3>
+                                <p class="mt-1 text-sm text-white/80">Kini Anda bisa bekerja bersama tim secara
+                                    real-time...</p>
+                            </a>
+                        </div>
+                        <!-- Slide 4 -->
+                        <div class="swiper-slide">
+                            <a href="#" class="block rounded-lg bg-white/10 p-5 transition hover:bg-white/20">
+                                <h3 class="font-semibold text-lg">Slide 4 Fitur Kolaborasi Terbaru</h3>
+                                <p class="mt-1 text-sm text-white/80">Slide 4 Kini Anda bisa bekerja bersama tim secara
+                                    real-time...</p>
+                            </a>
+                        </div>
+                        <!-- Slide 5 -->
+                        <div class="swiper-slide">
+                            <a href="#" class="block rounded-lg bg-white/10 p-5 transition hover:bg-white/20">
+                                <h3 class="font-semibold text-lg">Slide 5 Fitur Kolaborasi Terbaru</h3>
+                                <p class="mt-1 text-sm text-white/80">Slide 5 Kini Anda bisa bekerja bersama tim secara
+                                    real-time...</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination mt-4 relative !bottom-0"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="flex items-center justify-center p-6 sm:p-10 lg:col-span-2 bg-white">
+            <div class="w-full max-w-md">
+
+                <div class="text-center">
+                    <img src="/img/logouinjambi.svg" alt="Logo Perusahaan" class="mx-auto h-20 mb-6">
+                    <h1 class="text-3xl font-bold text-gray-900">Selamat Datang</h1>
+                    <p class="mt-2 text-gray-600">Masuk untuk melanjutkan dengan akun SSO (Single Sign On) Anda.</p>
+                </div>
+
+                <form class="mt-8 space-y-5">
+                    <div>
+                        <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+                        <input type="text" id="username" name="username" placeholder="Masukkan username Anda" required
+                            class="mt-1 block w-full rounded-md border-gray-300 bg-gray-100 py-3 px-4 focus:border-blue-500 focus:ring-blue-500 shadow-sm">
+                    </div>
+
+                    <div class="relative">
+                        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                        <input type="password" id="password" name="password" placeholder="••••••••" required
+                            class="mt-1 block w-full rounded-md border-gray-300 bg-gray-100 py-3 px-4 pr-12 focus:border-blue-500 focus:ring-blue-500 shadow-sm">
+                        <button type="button" id="password-toggle"
+                            class="absolute inset-y-0 right-0 top-7 flex items-center px-4 text-gray-500">
+                            <svg id="eye-open" class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                            </svg>
+                            <svg id="eye-closed" class="h-5 w-5 hidden" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.243 4.243-3.65-3.65" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="flex items-center justify-between text-sm">
+                        <div class="flex items-center gap-2">
+                            <input id="remember-me" name="remember-me" type="checkbox"
+                                class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+                            <label for="remember-me" class="text-gray-600">Ingat saya</label>
+                        </div>
+                        <a href="#" class="font-medium text-blue-600 hover:underline">Lupa Password?</a>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full justify-center rounded-md border border-transparent bg-blue-600 py-3 px-4 text-sm font-bold text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                        Masuk
+                    </button>
+                </form>
+
+                <!-- <div class="my-6 flex items-center">
+                    <div class="flex-grow border-t border-gray-300"></div>
+                    <span class="mx-4 flex-shrink text-sm text-gray-500">Atau masuk dengan</span>
+                    <div class="flex-grow border-t border-gray-300"></div>
+                </div>
+
+                <div class="space-y-3">
+                    <button class="flex w-full items-center justify-center gap-3 rounded-md border border-gray-300 bg-white py-2.5 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50">
+                        <img src="https://www.vectorlogo.zone/logos/google/google-icon.svg" alt="[Ikon Google]" class="h-5 w-5">
+                        <span>Google</span>
+                    </button>
+                </div> -->
+                
+            </div>
+        </section>
+    </main>
+
+    <!-- Memuat JS untuk Swiper.js Carousel -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Fungsionalitas Toggle Password ---
+            const passwordInput = document.getElementById('password');
+            const passwordToggle = document.getElementById('password-toggle');
+            const eyeOpen = document.getElementById('eye-open');
+            const eyeClosed = document.getElementById('eye-closed');
+
+            passwordToggle.addEventListener('click', () => {
+                const isPassword = passwordInput.type === 'password';
+
+                if (isPassword) {
+                    passwordInput.type = 'text';
+                    eyeOpen.classList.add('hidden');
+                    eyeClosed.classList.remove('hidden');
+                } else {
+                    passwordInput.type = 'password';
+                    eyeOpen.classList.remove('hidden');
+                    eyeClosed.classList.add('hidden');
+                }
+            });
+
+            // Inisialisasi Carousel Blog
+            var blogSwiper = new Swiper(".blog-carousel", {
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            });
+
+            // Inisialisasi Carousel Background
+            var backgroundSwiper = new Swiper(".background-swiper", {
+                loop: true,
+                speed: 1200,
+                parallax: false,
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true
+                },
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+            });
+        });
+    </script>
+</body>
+
+</html>
